@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%=title%></title>
+	<link href="/public/css/bootstrapAgile.css" rel="stylesheet">
+	<link href="https://s3.amazonaws.com/www.agilemd.com/css/common.css" rel="stylesheet" type="text/css"/> 
+	<link href="https://s3.amazonaws.com/www.agilemd.com/css/index.css" rel="stylesheet" type="text/css"/>
+	<style>
+	html
+	{
+		background-color: #FFFFFF;	
+	}
+	body
+	{
+		background-color: #FFFFFF;	
+	}
+	.hoverTableRow
+	{
+		background-color: #F1FDFF;
+	} 
+	.headerRow
+	{
+		background-color: #F2F2F2;
+	}
+	.headerCell
+	{
+		border: 1px solid #BDBDBD;
+	}
+	.tableRow
+	{
+		border: 1px solid #BDBDBD;		
+	}
+	.tableCell
+	{
+		border: 1px solid #BDBDBD;				
+	}
+	</style>
+
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', <%= "'" + header[0] + "'"%>);
+		<% for (var i = 1; i < header.length; i++) { %>
+        	data.addColumn('number', <%= "'" + header[i] + "'"%>);
+		<% } %>
+		var entries = <%- JSON.stringify(entryArray)%> 	
+
+        data.addRows(entries);
+        var headerLength = <%= header.length %>;
+        for (var i = 1; i < headerLength; i++) { 
+        	data.setCell(0, i, undefined, undefined, {style: 'width:130px; height:44px;'});
+        }
+
+
+        var cssClassNames = {headerRow: 'headerRow', tableRow: 'tableRow', selectedTableRow: 'selectedTableRow', hoverTableRow: 'hoverTableRow', headerCell: 'headerCell', tableCell: 'tableCell'};
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {showRowNumber: true, allowHtml: true, alternatingRowStyle: false, cssClassNames: cssClassNames});
+
+      }
+    </script>
+</head>
+
+<!--         data.setCell(4, 3, undefined, undefined, {style: 'font-style:bold; font-size:22px;'}); -->
+<!-- setProperties(rowIndex, columnIndex, properties)//for a cell
+setTableProperties(properties)
+setColumnProperties(columnIndex, properties)
+
+setColumnProperty(columnIndex, name, value)
+value is a value of any type to assign to the specified named property of the specified column.
+setColumn Property(0, type, 'numbers')
+
+
+dataTable.setCell(22, 2, 15, 'Fifteen', {className:'normalColumn'});
+
+dataTable.setCell(22, 2, 15, 'Fifteen', {style: 'font-style:bold; font-size:22px;'});
+
+properties for table data visualization are:
+className and style.
+ -->
+
+<body>
+
+<div class="page blurs"> <div class="navigation grid"> <div class="col-6-12"> <a href="/"><img src="https://s3.amazonaws.com/www.agilemd.com/img/agilemd_logo__white.png"/></a> </div> <div class="col-6-12"> 
+<ul> 
+	<li><a href="https://my.agilemd.com/author">Author</a></li> 
+	<li><a href="https://my.agilemd.com/reader">Reader</a></li> 
+	<li><a href="https://my.agilemd.com/library">Library</a></li> 
+	<li><a href="/" class="active">Account</a></li> 
+	<li><a href="https://my.agilemd.com/logout">Sign Out</a></li> 
+</ul> 
+</div> </div>
+
+<div class="containerTop">
+<h1><%=title%></h1>
+</div>
+
+<div class="container">
+
+ <div id='table_div'></div>
+
+</div>
+
+</body>
+</html>
+
+
+<!-- <table>
+  <tr style="text-align:center;">
+    <td style="text-align:center;"><img width = "50" src="/public/img/agileLogo3.png">&nbsp;&nbsp;&nbsp;</td>
+    <td style="text-align:center;"><h1><%=title%></h1></td>
+  </tr>
+</table> -->

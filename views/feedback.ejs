@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%=title%></title>
+	<link href="/public/css/bootstrapAgile.css" rel="stylesheet">
+
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', <%= "'" + header[0] + "'"%>);
+		<% for (var i = 1; i < header.length; i++) { %>
+        	data.addColumn('string', <%= "'" + header[i] + "'"%>);
+		<% } %>
+		var entries = <%- JSON.stringify(entryArray)%> 	
+
+        data.addRows(entries);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {showRowNumber: true, allowHtml: true});
+      }
+    </script>
+</head>
+
+<body>
+
+<div class="container">
+<table>
+  <tr style="text-align:center;">
+    <td style="text-align:center;"><img width = "50" src="/public/img/agileLogo3.png">&nbsp;&nbsp;&nbsp;</td>
+    <td style="text-align:center;"><h1><%=title%></h1></td>
+  </tr>
+</table>
+</div>
+
+<div class="container">
+
+ <div id='table_div'></div>
+
+
+</div>
+
+</body>
+</html>

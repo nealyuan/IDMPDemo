@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript" src="./public/js/jquery-1.10.2.min.js"></script>
+
+<!--    Table Sorter stuff -->  
+    <link rel="stylesheet" href="./public/css/theme.blue.css">
+    <!-- load jQuery and tablesorter scripts -->
+    <script type="text/javascript" src="./public/js/jquery.tablesorter.js"></script>
+    <!-- tablesorter widgets (optional) -->
+    <script type="text/javascript" src="./public/js/jquery.tablesorter.widgets.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("table").tablesorter({
+                theme : 'blue',
+                sortList: [[0,0],[1,0]] //sort by first column and then by second column
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+
+
+<table class="tablesorter">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Total</th>
+      <th>Discount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Peter</td>
+      <td>Parker</td>
+      <td>28</td>
+      <td>$9.99</td>
+      <td>20%</td>
+      <td>Jul 6, 2006 8:14 AM</td>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Hood</td>
+      <td>33</td>
+      <td>$19.99</td>
+      <td>25%</td>
+      <td>Dec 10, 2002 5:14 AM</td>
+    </tr>
+    <tr>
+      <td>Clark</td>
+      <td>Kent</td>
+      <td>18</td>
+      <td>$15.89</td>
+      <td>44%</td>
+      <td>Jan 12, 2003 11:14 AM</td>
+    </tr>
+    <tr>
+      <td>Bruce</td>
+      <td>Almighty</td>
+      <td>45</td>
+      <td>$153.19</td>
+      <td>44%</td>
+      <td>Jan 18, 2001 9:12 AM</td>
+    </tr>
+    <tr>
+      <td>Bruce</td>
+      <td>Evans</td>
+      <td>22</td>
+      <td>$13.19</td>
+      <td>11%</td>
+      <td>Jan 18, 2007 9:12 AM</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

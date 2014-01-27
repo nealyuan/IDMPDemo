@@ -1,0 +1,13 @@
+<span data-toggle="tooltip" title="Guidelines currently available on the UCLA Antimicrobials App">Guideline</span>,<span data-toggle="tooltip" title="The number of guideline views in the past week">Weekly Views</span>,<span data-toggle="tooltip" title="The number of guideline views in the past month">Monthly Views</span>,<span data-toggle="tooltip" title="The % of users that have viewed this guideline more than once in the past month">Rate of Repeat Usage</span>,<span data-toggle="tooltip" title="Feedback from users">Feedback Comments</span>
+<a href = "/">Overall</a>,999,2088,51%,37
+<a href = "/">Community-acquired pneumonia in hospitalized patients</a>,170,318,74%,3
+<a href = "/hap">Healthcare-associated Pneumonia (NOT ventilator-associated)</a>,139,276,63%,2
+<a href = "/vap">Ventilator-associated Pneumonia (VAP)</a>,143,113,56%,2
+<a href = "/">Seasonal Influenza Diagnosis and Management</a>,132,198,40%,3
+<a href = "/">Tuberculosis (TB) Infection</a>,20,50,38%,3
+<a href = "/">Adult Anti-Infective Dosing Guide</a>,231,585,82%,12
+<a href = "/">Ampicillin/sulbactam (Unasyn)</a>,30,80,41%,3
+<a href = "/">Sepsis Guidelines</a>,63,273,21%,<a href = "/sepsisFeedback">6</a>
+<a href = "/">Bacteriuria in Patients with Neurogenic Bladder and/or Indwelling Catheters</a>,18,53,33%,0
+<a href = "/">Bloodstream Infections</a>,28,74,53%,2
+<a href = "/">Catheter-associated UTI (CAUTI)</a>,25,68,46%,1

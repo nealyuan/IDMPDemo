@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%=title%></title>
+	<link href="/public/css/bootstrapAgile.css" rel="stylesheet">
+	<link href="https://s3.amazonaws.com/www.agilemd.com/css/common.css" rel="stylesheet" type="text/css"/> 
+	<link href="https://s3.amazonaws.com/www.agilemd.com/css/index.css" rel="stylesheet" type="text/css"/>
+	<style>
+	html
+	{
+		background-color: #FFFFFF;	
+	}
+	body
+	{
+		background-color: #FFFFFF;	
+	}
+	</style>
+
+	<script type="text/javascript" src="/public/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="/public/js/bootstrap.js"></script>
+
+<!-- 	Table Sorter stuff -->	
+	<link rel="stylesheet" href="/public/css/theme.blue.css">
+	<!-- load jQuery and tablesorter scripts -->
+	<script type="text/javascript" src="/public/js/jquery.tablesorter.js"></script>
+	<!-- tablesorter widgets (optional) -->
+	<script type="text/javascript" src="/public/js/jquery.tablesorter.widgets.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#mainTable').tablesorter({
+				sortList: [[0,0],[1,0]], //sort by first column and then by second column
+    			theme : 'blue'
+			});
+			$('span').tooltip();  //activates bubble pop-ups
+		});
+	</script>
+
+</head>
+
+<body>
+
+<div class="page blurs"> <div class="navigation grid"> <div class="col-6-12"> <a href="/"><img src="https://s3.amazonaws.com/www.agilemd.com/img/agilemd_logo__white.png"/></a> </div> <div class="col-6-12"> 
+<ul> 
+	<li><a href="https://my.agilemd.com/author">Author</a></li> 
+	<li><a href="https://my.agilemd.com/reader">Reader</a></li> 
+	<li><a href="https://my.agilemd.com/library">Library</a></li> 
+	<li><a href="/" class="active">Account</a></li> 
+	<li><a href="https://my.agilemd.com/logout">Sign Out</a></li> 
+</ul> 
+</div> </div>
+
+<div class="containerTop">
+<h1><%=title%></h1>
+</div>
+
+<div class="container">
+
+<table id="mainTable" class="tablesorter"> 
+<thead> 
+<tr> 
+<% for (var i = 0; i < entryArray[0].length; i++) { %>
+    <th><%- entryArray[0][i] %></th> 
+<% } %>
+</tr> 
+</thead> 
+
+<tbody> 
+<% for (var i = 1; i < entryArray.length; i++) { %>
+<tr>
+	<% for (var j = 0; j < entryArray[0].length; j++) { %>
+    <td><%- entryArray[i][j] %></td> 
+	<% } %>
+</tr>
+<% } %>
+</tbody> 
+</table> 
+
+</div>
+
+</body>
+</html>
