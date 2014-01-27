@@ -27,13 +27,18 @@
 	<script type="text/javascript" src="/public/js/jquery.tablesorter.js"></script>
 	<!-- tablesorter widgets (optional) -->
 	<script type="text/javascript" src="/public/js/jquery.tablesorter.widgets.js"></script>
+<!-- Sparkline stuff -->
+	<script type="text/javascript" src="/public/js/jquery.sparkline.js"></script>
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#mainTable').tablesorter({
-				sortList: [[0,0],[1,0]], //sort by first column and then by second column
     			theme : 'blue'
 			});
 			$('span').tooltip();  //activates bubble pop-ups
+
+			$('.inlineSparkline').sparkline('html', {type: 'line', lineColor: 'blue', tooltipChartTitle: 'Views', spotRadius: 1});
+			$('.inlineSparkline2').sparkline('html', {type: 'bar', barColor: 'blue', tooltipChartTitle: 'Views'});
 		});
 	</script>
 
@@ -70,7 +75,15 @@
 <% for (var i = 1; i < entryArray.length; i++) { %>
 <tr>
 	<% for (var j = 0; j < entryArray[0].length; j++) { %>
-    <td><%- entryArray[i][j] %></td> 
+    <td>
+    	<%- entryArray[i][j] %>
+    	<% if (j == 1) { %>
+    		<span class="inlineSparkline">24,35,36,19,10,9,7,4,2</span>
+    	<% } %>
+    	<% if (j == 2) { %>
+    		<span class="inlineSparkline2">24,35,36,19,10,9,7,4,2</span>
+    	<% } %>
+    </td> 
 	<% } %>
 </tr>
 <% } %>
