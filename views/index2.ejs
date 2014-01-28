@@ -16,73 +16,30 @@
 	{
 		background-color: #FFFFFF;	
 	}
-	.hoverTableRow
-	{
-		background-color: #F1FDFF;
-	} 
-	.headerRow
-	{
-		background-color: #F2F2F2;
-	}
-	.headerCell
-	{
-		border: 1px solid #BDBDBD;
-	}
-	.tableRow
-	{
-		border: 1px solid #BDBDBD;		
-	}
-	.tableCell
-	{
-		border: 1px solid #BDBDBD;				
-	}
 	</style>
 
-	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-    <script type='text/javascript'>
-      google.load('visualization', '1', {packages:['table']});
-      google.setOnLoadCallback(drawTable);
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', <%= "'" + header[0] + "'"%>);
-		<% for (var i = 1; i < header.length; i++) { %>
-        	data.addColumn('number', <%= "'" + header[i] + "'"%>);
-		<% } %>
-		var entries = <%- JSON.stringify(entryArray)%> 	
+	<script type="text/javascript" src="/public/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="/public/js/bootstrap.js"></script>
 
-        data.addRows(entries);
-        var headerLength = <%= header.length %>;
-        for (var i = 1; i < headerLength; i++) { 
-        	data.setCell(0, i, undefined, undefined, {style: 'width:130px; height:44px;'});
-        }
+<!-- 	Table Sorter stuff -->	
+	<link rel="stylesheet" href="/public/css/theme.blue.css">
+	<!-- load jQuery and tablesorter scripts -->
+	<script type="text/javascript" src="/public/js/jquery.tablesorter.js"></script>
+	<!-- tablesorter widgets (optional) -->
+	<script type="text/javascript" src="/public/js/jquery.tablesorter.widgets.js"></script>
+<!-- Sparkline stuff -->
+	<script type="text/javascript" src="/public/js/jquery.sparkline.js"></script>
 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#mainTable').tablesorter({
+    			theme : 'blue'
+			});
+			$('span').tooltip();  //activates bubble pop-ups
+		});
+	</script>
 
-        var cssClassNames = {headerRow: 'headerRow', tableRow: 'tableRow', selectedTableRow: 'selectedTableRow', hoverTableRow: 'hoverTableRow', headerCell: 'headerCell', tableCell: 'tableCell'};
-
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-        table.draw(data, {showRowNumber: true, allowHtml: true, alternatingRowStyle: false, cssClassNames: cssClassNames});
-
-      }
-    </script>
 </head>
-
-<!--         data.setCell(4, 3, undefined, undefined, {style: 'font-style:bold; font-size:22px;'}); -->
-<!-- setProperties(rowIndex, columnIndex, properties)//for a cell
-setTableProperties(properties)
-setColumnProperties(columnIndex, properties)
-
-setColumnProperty(columnIndex, name, value)
-value is a value of any type to assign to the specified named property of the specified column.
-setColumn Property(0, type, 'numbers')
-
-
-dataTable.setCell(22, 2, 15, 'Fifteen', {className:'normalColumn'});
-
-dataTable.setCell(22, 2, 15, 'Fifteen', {style: 'font-style:bold; font-size:22px;'});
-
-properties for table data visualization are:
-className and style.
- -->
 
 <body>
 
@@ -102,17 +59,29 @@ className and style.
 
 <div class="container">
 
- <div id='table_div'></div>
+<table id="mainTable" class="tablesorter"> 
+<thead> 
+<tr> 
+<% for (var i = 0; i < entryArray[0].length; i++) { %>
+    <th><%- entryArray[0][i] %></th> 
+<% } %>
+</tr> 
+</thead> 
+
+<tbody> 
+<% for (var i = 1; i < entryArray.length; i++) { %> 
+<tr>
+	<% for (var j = 0; j < entryArray[0].length; j++) { %>
+    <td>
+    	<%- entryArray[i][j] %>
+    </td> 
+	<% } %>
+</tr>
+<% } %>
+</tbody> 
+</table> 
 
 </div>
 
 </body>
 </html>
-
-
-<!-- <table>
-  <tr style="text-align:center;">
-    <td style="text-align:center;"><img width = "50" src="/public/img/agileLogo3.png">&nbsp;&nbsp;&nbsp;</td>
-    <td style="text-align:center;"><h1><%=title%></h1></td>
-  </tr>
-</table> -->

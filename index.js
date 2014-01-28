@@ -26,13 +26,25 @@ app.get('/', function(req, res) {
 		for (var i = 0; i < lines.length; i++){
 			entryArray[i] = lines[i].split(',');
 		}
+		fs.readFile('sparkLineData1.csv', function(err, data){
+			var text = data.toString();
+			//Break up file into lines, an array with each element
+			//being a string of text
+			var lines = text.split(/\n|\r\n|\r/);
 
-	  res.render('index', {
-	    locals: {
-	      'title': 'UCLA Antimicrobial Guidelines Usage Data',
-	      'entryArray': entryArray
-	    }
-	  })
+			//Array of arrays of values for sparkline graphs
+			var sparkArrays = [];
+			for (var i = 0; i < lines.length; i++){
+				sparkArrays[i] = lines[i].split(';');
+			}
+			res.render('index', {
+			    locals: {
+			      'title': 'UCLA Antimicrobial Guidelines Usage Data',
+			      'entryArray': entryArray,
+			      'sparkArrays': sparkArrays
+			    }
+		  	})	
+		})
 	})
 })
 
@@ -51,7 +63,7 @@ app.get('/vap', function(req, res) {
 			entryArray[i] = lines[i].split(',');
 		}
 
-	  res.render('index', {
+	  res.render('index2', {
 	    locals: {
 	      'title': 'Ventilator-associated Pneumonia Guideline Usage',
 	      'entryArray': entryArray
@@ -74,7 +86,7 @@ app.get('/hap', function(req, res) {
 		for (var i = 0; i < lines.length; i++){
 			entryArray[i] = lines[i].split(',');
 		}
-	  res.render('index', {
+	  res.render('index2', {
 	    locals: {
 	      'title': 'Hospital Acquired Pneumonia Guideline Usage',
 	      'entryArray': entryArray
@@ -97,8 +109,8 @@ app.get('/sepsisFeedback', function(req, res) {
 		for (var i = 0; i < lines.length; i++){
 			entryArray[i] = lines[i].split(',');
 		}
-		
-	  res.render('index', {
+
+	  res.render('index2', {
 	    locals: {
 	      'title': 'Sepsis Guidelines User Feedback',
 	      'entryArray': entryArray

@@ -50,7 +50,7 @@ th:nth-child(1){
 .tablesorter-blue tfoot th,
 .tablesorter-blue tfoot td {
 	padding: 4px;
-	vertical-align: top;
+	vertical-align: middle;
 }
 .tablesorter-blue .header,
 .tablesorter-blue .tablesorter-header {
@@ -69,7 +69,7 @@ th:nth-child(1){
 .tablesorter-blue .headerSortUp,
 .tablesorter-blue .tablesorter-headerSortUp,
 .tablesorter-blue .tablesorter-headerAsc {
-	background-color: #F2F2F2;
+	background-color: #BDBDBD;
 	/* black asc arrow */
 	background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
 	/* white asc arrow */
@@ -80,7 +80,7 @@ th:nth-child(1){
 .tablesorter-blue .headerSortDown,
 .tablesorter-blue .tablesorter-headerSortDown,
 .tablesorter-blue .tablesorter-headerDesc {
-	background-color: #F2F2F2;
+	background-color: #BDBDBD;
 	/* black desc arrow */
 	background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
 	/* white desc arrow */
