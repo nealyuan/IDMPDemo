@@ -6,7 +6,7 @@
 	width: 100%;
 	background-color: #fff;
 	margin: 10px 0 15px;
-	text-align: left;
+	text-align: right;
 	border-spacing: 0;
 	border: #cdcdcd 1px solid;
 	border-width: 1px 0 0 1px;
@@ -20,18 +20,21 @@
 /* header */
 .tablesorter-blue th{
 	width: 130px;
+	text-align: center;
 }
 th:nth-child(1){
      width:100%;
+     text-align: left;
+}
+td:nth-child(1){
+     width:100%;
+     text-align: left;
 }
 .tablesorter-blue tr{
 	height: 44px;
 	font-size: 16px;
 }
 
-tbody th{
-text-align:right;
-}
 th:nth-child(1){
      width:250px;
 }
@@ -49,7 +52,7 @@ th:nth-child(1){
 .tablesorter-blue tbody td,
 .tablesorter-blue tfoot th,
 .tablesorter-blue tfoot td {
-	padding: 4px;
+	padding-left: 20px;
 	vertical-align: middle;
 }
 .tablesorter-blue .header,
@@ -62,7 +65,7 @@ th:nth-child(1){
 	/* background-image: url(images/black-unsorted.gif); */
 	background-repeat: no-repeat;
 	background-position: center right;
-	padding: 4px 18px 4px 4px;
+	padding: 4px 20px 4px 20px;
 	white-space: normal;
 	cursor: pointer;
 }
